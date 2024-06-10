@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: Sunflower
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sunflower
+    username: root
+    password: sleepyroot
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+app:
+  images:
+    communities-logotype-directory-path: D:\database\Sunflower\Images\Communities\Logotype
+    communities-banner-directory-path: D:\database\Sunflower\Images\Communities\Banner
+    users-logotype-directory-path: D:\database\Sunflower\Images\Users\Logotype
+
+
+
+
