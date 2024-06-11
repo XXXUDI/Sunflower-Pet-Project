@@ -17,8 +17,9 @@ import java.util.List;
 @Data
 public class Community {
 
-    @Id @GeneratedValue
-    private int id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "community_id")
+    private Integer id;
 
     @Column(nullable = false, name = "community_name")
     private String name;

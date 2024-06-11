@@ -1,2 +1,4 @@
-package com.soCompany.sunflower.services;public class UserService {
+package com.soCompany.sunflower.services;
+
+public class UserService {
 }

@@ -16,7 +16,8 @@ import java.util.Date;
 public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "chat_id")
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "community_id")

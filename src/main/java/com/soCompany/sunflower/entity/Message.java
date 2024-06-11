@@ -11,12 +11,13 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "message")
+@Table(name = "messages")
 public class Message {
 
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="message_id")
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "chat_id", nullable = false)

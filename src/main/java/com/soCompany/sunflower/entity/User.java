@@ -16,8 +16,9 @@ import java.sql.Timestamp;
 @Table(schema = "sunflower", name = "Users")
 public class User {
 
-    @Id @GeneratedValue
-    private Long id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private Integer id;
 
     @Column(nullable = false, unique = true)
     private String username;
@@ -28,7 +29,7 @@ public class User {
     @Column(nullable = false, name = "password_hash")
     private String password;
 
-    @Column(name = "avatar", unique = true)
+    @Column(name = "avatar_url", unique = true)
     private String avatar;
 
     @Column(name = "created_at" )

@@ -11,9 +11,11 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Table(name = "posts")
 public class Post {
-    @GeneratedValue @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) @Id
+    @Column(name = "post_id")
+    private Integer id;
 
     @Column(nullable = false)
     private String title;
