@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @Data
 @Builder
 public class UserReadDto implements DtoObject {
+    private int id;
     private String username;
     private String email;
     private String avatarUrl;

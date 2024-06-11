@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommunityReadDto implements DtoObject{
+    private int id;
     private String name;
     private String description;
     private String logotype;

@@ -8,6 +8,7 @@ public class CommunityReadMapper implements Mapper<Community, CommunityReadDto> 
     @Override
     public CommunityReadDto map(Community from) {
         return CommunityReadDto.builder()
+                .id(from.getId())
                 .name(from.getName())
                 .description(from.getDescription())
                 .logotype(from.getLogotype())

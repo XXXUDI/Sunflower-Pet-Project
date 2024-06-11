@@ -22,7 +22,7 @@ public class UserEditMapper implements Mapper<UserEditDto, User> {
                 .password(from.getPassword())
                 .email(from.getEmail())
                 .balance(from.getBalance())
-                .avatar(from.getAvatar().isEmpty() ? from.getAvatar().getOriginalFilename() : null)
+                .avatar(from.getAvatar() != null && from.getAvatar().isEmpty() ? from.getAvatar().getOriginalFilename() : null)
                 .build();
     }
 

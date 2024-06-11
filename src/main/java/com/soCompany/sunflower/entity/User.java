@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -32,8 +32,8 @@ public class User {
     @Column(name = "avatar_url", unique = true)
     private String avatar;
 
-    @Column(name = "created_at" )
-    Timestamp createdAt;
+    @Column(name = "created_at",updatable = false, insertable = false)
+    LocalDateTime createdAt;
 
     private BigDecimal balance;
 }
