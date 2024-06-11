@@ -5,7 +5,7 @@ CREATE TABLE users (
                        username VARCHAR(50) NOT NULL UNIQUE,
                        email VARCHAR(100) NOT NULL UNIQUE,
                        password_hash VARCHAR(255) NOT NULL,
-                       balance DECIMAL(10, 2) DEFAULT 0.00, -- Внутренняя валюта пользователя
+                       balance DECIMAL(10, 2) DEFAULT 0.00,
                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                        avatar_url VARCHAR(255)
 );

@@ -16,7 +16,7 @@ public class UserRestController {
     private final UserService userService;
 
     @GetMapping("/{id}")
-    public UserReadDto findUserById(@RequestParam int id) {
+    public UserReadDto getUserById(@RequestParam int id) {
         return userService.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 

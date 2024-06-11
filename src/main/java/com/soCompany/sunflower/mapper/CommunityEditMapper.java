@@ -15,8 +15,8 @@ public class CommunityEditMapper implements Mapper<CommunityEditDto, Community>{
         return Community.builder()
                 .name(from.getName())
                 .description(from.getDescription())
-                .logotype(from.getLogotype().isEmpty() ? from.getLogotype().getOriginalFilename() : null)
-                .banner(from.getBanner().isEmpty() ? from.getLogotype().getOriginalFilename() : null)
+                .logotype(from.getLogotype() != null && !from.getLogotype().isEmpty() ? from.getLogotype().getOriginalFilename() : null)
+                .banner(from.getBanner() != null && !from.getBanner().isEmpty() ? from.getLogotype().getOriginalFilename() : null)
                 .owner(from.getOwner())
                 .build();
     }

@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 @Builder
 @Entity
@@ -37,5 +38,6 @@ public class Community {
     @Column(name ="banner_url")
     private String banner;
 
-    private Timestamp createdAt;
+    @Column(name = "created_at",updatable = false, insertable = false)
+    LocalDateTime createdAt;
 }

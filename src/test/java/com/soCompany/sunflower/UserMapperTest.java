@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,7 +32,7 @@ public class UserMapperTest {
                 .email("MaksimWork@gmail.com")
                 .avatar(null)
                 .balance(BigDecimal.valueOf(33123L))
-                .createdAt(Timestamp.valueOf("2023-01-01 10:00:00"))
+                .createdAt(LocalDateTime.of(2002, 12, 27, 20, 22))
                 .build();
     }
 
