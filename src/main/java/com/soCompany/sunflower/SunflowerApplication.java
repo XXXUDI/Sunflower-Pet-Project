@@ -8,6 +8,7 @@ public class SunflowerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SunflowerApplication.class, args);
+
     }
 
 }
