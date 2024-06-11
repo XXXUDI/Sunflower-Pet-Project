@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Data
 @Builder
-public class UserReadDto {
+public class UserReadDto implements DtoObject {
     private String username;
     private String email;
     private String avatarUrl;

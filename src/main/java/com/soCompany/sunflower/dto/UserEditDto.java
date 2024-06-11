@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Data
 @Builder
-public class UserEditDto {
+public class UserEditDto implements DtoObject {
     private String username;
     private String password;
     private String email;

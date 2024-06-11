@@ -2,6 +2,7 @@ package com.soCompany.sunflower.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
@@ -9,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
-
+@Builder
 @Entity
 @Table(name = "Communities")
 @AllArgsConstructor
