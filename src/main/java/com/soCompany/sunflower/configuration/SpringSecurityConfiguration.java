@@ -25,6 +25,7 @@ public class SpringSecurityConfiguration {
                         .anyRequest().permitAll()
                 );
 
+
         return http.build();
     }
 }

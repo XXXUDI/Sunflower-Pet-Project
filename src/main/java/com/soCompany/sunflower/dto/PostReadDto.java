@@ -7,11 +7,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Builder
-public class PostDto implements DtoObject{
+public class PostReadDto {
+    private int id;
     private String title;
     private String content;
     private User author;

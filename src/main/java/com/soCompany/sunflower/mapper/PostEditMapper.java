@@ -1,14 +1,14 @@
 package com.soCompany.sunflower.mapper;
 
-import com.soCompany.sunflower.dto.PostDto;
+import com.soCompany.sunflower.dto.PostEditDto;
 import com.soCompany.sunflower.entity.Post;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PostMapper implements Mapper<PostDto, Post>{
+public class PostEditMapper implements Mapper<PostEditDto, Post>{
 
     @Override
-    public Post map(PostDto from) {
+    public Post map(PostEditDto from) {
         return Post.builder()
                 .title(from.getTitle())
                 .community(from.getCommunity())
@@ -18,7 +18,7 @@ public class PostMapper implements Mapper<PostDto, Post>{
     }
 
     @Override
-    public Post map(PostDto object, Post toObject) {
+    public Post map(PostEditDto object, Post toObject) {
         toObject.setTitle(object.getTitle());
         toObject.setCommunity(object.getCommunity());
         toObject.setUser(object.getAuthor());
