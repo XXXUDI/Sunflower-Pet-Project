@@ -1,13 +1,16 @@
 package com.soCompany.sunflower.services;
 
+import com.querydsl.jpa.impl.JPAQuery;
 import com.soCompany.sunflower.dto.UserEditDto;
 import com.soCompany.sunflower.dto.UserReadDto;
+import com.soCompany.sunflower.entity.QUser;
 import com.soCompany.sunflower.entity.User;
 import com.soCompany.sunflower.mapper.UserEditMapper;
 import com.soCompany.sunflower.mapper.UserReadMapper;
 import com.soCompany.sunflower.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import org.hibernate.Session;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -16,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 import java.util.Optional;
 
+import static com.soCompany.sunflower.entity.QUser.user;
 import static org.springframework.util.StringUtils.hasText;
 
 @Service
@@ -26,6 +30,10 @@ public class UserService {
     private final UserReadMapper userReadMapper;
     private final UserEditMapper userEditMapper;
     private final UserImageService imageService;
+
+    public List<User> findAll(Session session) {
+        return new JPAQuery<User>(session).select(user).from(user).fetch();
+    }
 
     public Optional<UserReadDto> findById(int id) {
         return userRepository.findById(id).map(userReadMapper::map);

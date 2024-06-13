@@ -15,18 +15,19 @@ import org.springframework.web.server.ResponseStatusException;
 public class CommunityRestController {
     private final CommunityService communityService;
 
-    @GetMapping("/{id}")
-    public CommunityReadDto getCommunityById(@RequestParam Integer id) {
-        return communityService.findCommunityById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    @GetMapping
+    public CommunityReadDto getCommunity(@RequestParam(required = false) Integer id,
+                                         @RequestParam(required = false) String name) {
+        if (id != null) {
+            return communityService.findCommunityById(id)
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        } else if (name != null) {
+            return communityService.findCommunityByName(name)
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Either id or name must be provided");
+        }
     }
-
-    // TODO: Make this method works
-//    @GetMapping("/{name}")
-//    public CommunityReadDto getCommunityByName(@RequestParam String name) {
-//        return communityService.findCommunityByName(name)
-//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-//    }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
@@ -36,7 +37,7 @@ public class CommunityRestController {
     }
 
     @PutMapping("/{id}")
-    public CommunityReadDto updateCommunity(@PathVariable Integer id, @RequestBody CommunityEditDto communityEditDto) {
+    public CommunityReadDto updateCommunity(@RequestParam Integer id, @RequestBody CommunityEditDto communityEditDto) {
         return communityService.update(id, communityEditDto)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }

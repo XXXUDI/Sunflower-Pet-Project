@@ -9,11 +9,18 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/user")
 public class UserRestController {
     private final UserService userService;
+
+    @GetMapping
+    public List<UserReadDto> getAllUsers() {
+        return userService.findAll();
+    }
 
     @GetMapping("/{id}")
     public UserReadDto getUserById(@RequestParam int id) {
