@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
@@ -33,6 +34,6 @@ public class Post {
     @JoinColumn(nullable = false, name = "community_id")
     private Community community;
 
-    @Column(nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp createdAt;
+    @Column(name = "created_at",updatable = false, insertable = false)
+    LocalDateTime createdAt;
 }

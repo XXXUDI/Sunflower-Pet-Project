@@ -2,15 +2,18 @@ package com.soCompany.sunflower.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Table(name = "messages")
 public class Message {
 
@@ -30,6 +33,6 @@ public class Message {
     @Column(nullable = false)
     private String content;
 
-    @Column(nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp sentAt;
+    @Column(nullable = false, updatable = false, insertable = false)
+    private LocalDateTime sentAt;
 }

@@ -2,16 +2,19 @@ package com.soCompany.sunflower.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Table(name = "Chats")
 public class Chat {
     @Id
@@ -26,6 +29,7 @@ public class Chat {
     @Column(name = "chat_name")
     private String name;
 
-    private Timestamp createdAt;
+    @Column(name = "created_at",updatable = false, insertable = false)
+    LocalDateTime createdAt;
 }
 
